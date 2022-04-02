@@ -1,6 +1,6 @@
 import { useState, SyntheticEvent, useEffect, useRef } from 'react';
 import { useThrottle } from '../..';
-import { binarySearch } from '../../libs/util';
+import { binarySearch } from '@/util';
 import { VirtualListPositionList, VirtualListProps } from './types';
 
 export function useVirtualList(props: VirtualListProps) {

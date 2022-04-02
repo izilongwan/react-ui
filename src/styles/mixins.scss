@@ -1,0 +1,20 @@
+@mixin flex-cloumn {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-1 {
+  flex: 1;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

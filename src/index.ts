@@ -1,13 +1,11 @@
-import { Toast, VirtualList } from './components'
-
-import { useDebounce, useThrottle } from './hooks'
+import './styles/index.scss'
+import { Loading, VirtualList, Notify } from './components'
 
 export * from './hooks'
 export * from './components'
 
 export default {
-  Toast, 
+  Loading,
   VirtualList,
-  useDebounce, 
-  useThrottle,
+  Notify,
 }

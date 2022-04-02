@@ -1,7 +1,9 @@
-import Toast from './Toast'
+import Loading from './Loading'
+import Notify from './Notify'
 import VirtualList from './VirtualList'
 
 export {
   VirtualList,
-  Toast,
+  Loading,
+  Notify
 }

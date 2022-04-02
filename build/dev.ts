@@ -5,6 +5,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = Object.assign({}, devBase, {
   mode: 'development',
 
+  entry: {
+    index: './test/index.tsx'
+  },
+
   devServer: {
     compress: true,
     port: 5001,
@@ -18,3 +22,5 @@ module.exports = Object.assign({}, devBase, {
     })
   ]
 })
+
+export {}

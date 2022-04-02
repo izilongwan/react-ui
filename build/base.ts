@@ -1,8 +1,7 @@
-module.exports = {
-  entry: {
-    index: './test/index.tsx'
-  },
+const path = require('path')
+const { mode } = process.env
 
+module.exports = {
   output: {
     filename: 'js/[name].js',
     clean: true,
@@ -13,7 +12,9 @@ module.exports = {
       {
         test: /\.s?css$/,
         use: [
-          'style-loader',
+          mode === 'prod'
+            ? require('mini-css-extract-plugin').loader
+            : 'style-loader',
           'css-loader',
           'sass-loader',
         ],
@@ -50,10 +51,33 @@ module.exports = {
         ],
         exclude: /node_modules/,
       },
+      {
+        test: /\.(png|jpg|gif|svg|webp|jpeg)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 1024 * 50,
+              fallback: {
+                loader: 'file-loader',
+                options: {
+                  name: 'images/[name][contenthash:6].[ext]'
+                }
+              }
+            }
+          }
+        ],
+        exclude: /node_modules/,
+      }
     ]
   },
 
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
+    alias: {
+      '@': path.resolve(__dirname, '../src')
+    }
   },
 }
+
+export {}
