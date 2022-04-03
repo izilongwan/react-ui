@@ -59,22 +59,26 @@
 				padding: 10px;
 
 				&_main {
-					width: 80%;
+					width: 85%;
 				}
 
 				&_title {
-					display: flex;
-					justify-content: space-between;
+					position: relative;
+					padding-right: 20px;
 					line-height: 20px;
 					font-weight: bold;
 
 					&_content {
 						@include ellipsis;
+						font-size: 16px;
+						font-weight: bold;
 					}
 
 					&_close {
-						float: right;
-						font-size: 20px;
+						position: absolute;
+						top: 0;
+						right: 0;
+						font-size: 25px;
 						transform: rotate(45deg);
 						transition: transform .4s;
 						cursor: pointer;
@@ -86,10 +90,6 @@
 				}
 
 				&_text {
-					bottom: 16%;
-					overflow: hidden;
-					text-overflow: ellipsis;
-					white-space: nowrap;
 					margin-top: 5px;
 				}
 

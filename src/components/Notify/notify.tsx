@@ -1,4 +1,4 @@
-import React, { Component, ReactElement, LegacyRef } from 'react'
+import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import styles from './notify.module.scss'
 import {
@@ -82,8 +82,8 @@ class NotifyBox extends Component<Props, State> {
           return true
         })
       }, () => {
-        // this.state.notices.length <= 0
-        //   && ReactDOM.unmountComponentAtNode((this.ref as unknown as HTMLDivElement).parentNode as HTMLDivElement)
+        this.state.notices.length <= 0
+          && ReactDOM.unmountComponentAtNode((this.ref!).parentNode as HTMLDivElement)
       })
     }, this.transitionTime);
   }
@@ -100,7 +100,6 @@ class NotifyBox extends Component<Props, State> {
               <div ref={ node => this.ref = node } className={ `${ styles["notify-wrap_list_item"] } ${ styles[`notify-wrap_list_item-type-${ notice.type }`] } ${ notice.isShow ? styles['fade-in'] : '' } ` } key={ notice.key }>
                 <div className={ styles["notify-wrap_list_item_content"] }>
                   <span className={ `${ styles["notify-wrap_list_item_content_icon"] } ${ styles[`icon-${ notice.type }`] } ` }></span>
-                  {/* \`${ styles[`icon-${ notice.type }`] }\` */ }
 
                   <div className={ styles["notify-wrap_list_item_content_main"] }>
                     <div className={ styles["notify-wrap_list_item_content_title"] }>
@@ -109,8 +108,8 @@ class NotifyBox extends Component<Props, State> {
                         +
                       </span>
                     </div>
-                    <div className={ styles["notify-wrap_list_item_content_text"] }>
-                      { notice.message }
+
+                    <div dangerouslySetInnerHTML={ { __html: notice.message } } className={ styles["notify-wrap_list_item_content_text"] }>
                     </div>
                   </div>
                 </div>
