@@ -24,7 +24,7 @@ const getNotification: CreateNotification = (position: NotifyInstancePropPositio
   } catch (error) {
 
   } finally {
-    !positionKey && (positionKey = 'center')
+    !positionKey && (positionKey = 'default')
   }
 
   if (positionStateInstance[positionKey]) {
@@ -42,10 +42,10 @@ const getNotification: CreateNotification = (position: NotifyInstancePropPositio
   return notification
 }
 
-const notice = ({ type, message, duration = 2000, title = 'Notice', position, onClose }: NotifyInstanceProps) => {
-  const notification = getNotification(position!)
+const notice = (config: NotifyInstanceProps) => {
+  const notification = getNotification(config.position!)
 
-  return notification.add({ type, message, duration, onClose, title })
+  return notification.add(config)
 }
 
 export const notifyInstanceFunction: NotifyFunction = {

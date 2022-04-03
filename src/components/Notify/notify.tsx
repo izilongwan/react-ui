@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, LegacyRef } from 'react'
 import ReactDOM from 'react-dom'
 import styles from './notify.module.scss'
 import {
@@ -9,6 +9,7 @@ import {
 
 class NotifyBox extends Component<Props, State> {
   transitionTime: number;
+  wrapRef: null | HTMLDivElement;
   ref: null | HTMLDivElement;
 
   constructor(props: Props) {
@@ -16,6 +17,7 @@ class NotifyBox extends Component<Props, State> {
     this.transitionTime = 300
     this.state = { notices: [] }
     this.remove = this.remove.bind(this)
+    this.wrapRef = null
     this.ref = null
   }
 
@@ -41,6 +43,11 @@ class NotifyBox extends Component<Props, State> {
 
     notices.push(notice);
 
+    const rs = {
+      ref: this.ref,
+      close: () => this.remove(notice.key!)
+    }
+
     this.setState({ notices }, () => {
       if (notice.duration! > 0) {
         setTimeout(() => {
@@ -50,11 +57,6 @@ class NotifyBox extends Component<Props, State> {
 
       rs.ref = this.ref
     })
-
-    const rs = {
-      ref: this.ref,
-      close: () => this.remove(notice.key!)
-    }
 
     return rs
   }
@@ -82,8 +84,8 @@ class NotifyBox extends Component<Props, State> {
           return true
         })
       }, () => {
-        this.state.notices.length <= 0
-          && ReactDOM.unmountComponentAtNode((this.ref!).parentNode as HTMLDivElement)
+        // this.state.notices.length <= 0
+        //   && ReactDOM.unmountComponentAtNode(this.wrapRef!.parentNode as HTMLElement)
       })
     }, this.transitionTime);
   }
@@ -93,7 +95,7 @@ class NotifyBox extends Component<Props, State> {
     const { notices } = this.state
 
     return (
-      <div className={ styles["notify-wrap"] }>
+      <div className={ styles["notify-wrap"] } ref={ node => this.wrapRef = node }>
         <div className={ `${ styles['notify-wrap_list'] }` } style={ position }>
           {
             notices.map(notice => (
