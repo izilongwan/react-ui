@@ -20,7 +20,7 @@ import '@izilong/react-ui/dist/css/index.css'
 
 ## API Reference
 
-- VirtualList  
+- VirtualList
   ```js
     <VirtualList visibleHeight={ 400 } handlePullupLoad={ addListData }>
       {
@@ -34,10 +34,10 @@ import '@izilong/react-ui/dist/css/index.css'
   ```
 
 
-- Notify  
+- Notify
   | Parameter | Type     | Description                |
   | :-------- | :------- | :------------------------- |
-  | `type` | `string` | **Optional**. primary\|success\|danger\|warning\|info
+  | `type` | `string` | **Optional**. primary \| success \| danger \| warning \| info
   | `content` | `string` | **Required**. content
   | `title` | `string` | **Optional**. title
   | `duration` | `number` | **Optional**. duration
@@ -45,7 +45,7 @@ import '@izilong/react-ui/dist/css/index.css'
 
 
 
-- Loading  
+- Loading
   | Parameter | Type     | Description                       |
   | :-------- | :------- | :-------------------------------- |
   | `imgSrc` | `string` | **Optional**. import imgSrc from xxx
