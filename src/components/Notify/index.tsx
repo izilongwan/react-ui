@@ -16,11 +16,11 @@ const typesArr: NotifyInstancePropTypes[] = ['info', 'warning', 'success', 'dang
 
 const positionStateInstance: PositionStateInstance = {}
 
-const getNotification: CreateNotification = (position: NotifyInstancePropPosition): NotifyInstance => {
+const getNotification: CreateNotification = (style: NotifyInstancePropPosition): NotifyInstance => {
   let positionKey = ''
 
   try {
-    positionKey = JSON.stringify(position)
+    positionKey = JSON.stringify(style)
   } catch (error) {
 
   } finally {
@@ -35,7 +35,7 @@ const getNotification: CreateNotification = (position: NotifyInstancePropPositio
 
   document.body.appendChild(div)
 
-  const notification = ReactDOM.render(<Notify position={ position } />, div) as unknown as NotifyInstance
+  const notification = ReactDOM.render(<Notify style={ style } />, div) as unknown as NotifyInstance
 
   positionStateInstance[positionKey] = notification
 
@@ -43,7 +43,7 @@ const getNotification: CreateNotification = (position: NotifyInstancePropPositio
 }
 
 const notice = (config: NotifyInstanceProps) => {
-  const notification = getNotification(config.position!)
+  const notification = getNotification(config.style!)
 
   return notification.add(config)
 }

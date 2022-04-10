@@ -15,9 +15,9 @@ import '@izilong/react-ui/dist/css/index.css'
 
 Notify
 ```js
-Notify({ type, message, duration, isMaskShow, position })
+Notify({ type, content, duration, isMaskShow, style })
 
-Notify[type](message, duration, isMaskShow, position)
+Notify[type](content, duration, isMaskShow, style)
 
 ```
 
@@ -44,10 +44,10 @@ Notify[type](message, duration, isMaskShow, position)
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
 | `type` | `string` | **Optional**. primary / success / danger / warning / info
-| `message` | `string` | **Optional**. message
+| `content` | `string` | **Required**. content
 | `title` | `string` | **Optional**. title
 | `duration` | `number` | **Optional**. duration
-| `position` | `object` | **Optional**. {top: 10%, left: 50%}
+| `style` | `object` | **Optional**. {top: 10%, left: 50%}
 
 
 
@@ -57,8 +57,8 @@ Notify[type](message, duration, isMaskShow, position)
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `imgSrc` | `string` | **Optional**. img src
-| `message` | `string` | **Optional**. message
+| `imgSrc` | `string` | **Optional**. import imgSrc from xxx
+| `tip` | `string` | **Optional**. tip
 | `duration` | `number` | **Optional**. duration
 | `isMaskShow` | `boolean` | **Optional**. is show mask
-| `position` | `object` | **Optional**. {top: 10%, left: 50%}
+| `style` | `object` | **Optional**. {top: 10%, left: 50%}

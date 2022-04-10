@@ -1,6 +1,7 @@
-import React, { Component, ReactElement, LegacyRef } from 'react'
+import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import styles from './loading.module.scss'
+
 import {
   ILoadingInstanceProps,
   ILoadingProps,
@@ -10,7 +11,7 @@ import imgSrc from '@/assets/images/loading.gif'
 
 class Loading extends Component<ILoadingProps, ILoadingState> {
   transitionTime: number;
-  ref: null | LegacyRef<HTMLDivElement>;
+  ref: HTMLDivElement | null
 
   constructor(props: ILoadingProps) {
     super(props)
@@ -30,8 +31,8 @@ class Loading extends Component<ILoadingProps, ILoadingState> {
       isShow: true,
       duration: -1,
       isMaskShow: true,
-      message: '',
-      position: {},
+      tip: '',
+      style: {},
       imgSrc
     }
   }
@@ -67,27 +68,43 @@ class Loading extends Component<ILoadingProps, ILoadingState> {
     config.isShow = false
 
     setTimeout(() => {
-      this.setState({ config: null })
+      this.setState({ config: null }, this.removeContainerNode)
     }, this.transitionTime);
+  }
+
+  removeContainerNode() {
+    const oContainer = this.ref!.parentElement!
+
+    ReactDOM.unmountComponentAtNode(oContainer)
+    oContainer?.remove()
   }
 
   render() {
     const { config } = this.state
 
-    if (!config) {
-      return null
-    }
+    return (
+      <div className={ styles['loading-wrap'] } ref={ node => this.ref = node }>
+        {
+          config
+            ? this.renderContent(config)
+            : null
+        }
+      </div>
+    )
+  }
+
+  renderContent(config: ILoadingInstanceProps) {
 
     return (
-      <div className={ styles["loading-wrap"] } ref={ node => this.ref = node as LegacyRef<HTMLDivElement> }>
-        <div className={ `${ styles['loading-wrap_box'] }` } style={ config.position || {} }>
+      <>
+        <div className={ `${ styles['loading-wrap_box'] }` } style={ config.style }>
           {
-            <div className={ `${ styles["loading-wrap_box_content"] } ${ config.isShow ? styles["fade-in"] : '' }` }>
-              <img className={ `${ styles["loading-wrap_box_content_img"] }` } src={ config.imgSrc } />
+            <div className={ `${ styles['loading-wrap_box_content'] } ${ config.isShow ? styles['fade-in'] : '' }` }>
+              <img className={ `${ styles['loading-wrap_box_content_img'] }` } src={ config.imgSrc } />
               {
-                config.message
-                  ? <div className={ styles["loading-wrap_box_content_text"] }>
-                    { config.message }
+                config.tip
+                  ? <div className={ styles['loading-wrap_box_content_text'] }>
+                    { config.tip }
                   </div>
                   : null
               }
@@ -97,10 +114,10 @@ class Loading extends Component<ILoadingProps, ILoadingState> {
 
         {
           config.isMaskShow
-            ?  <div className={ styles['loading-wrap_mask'] }></div>
+            ? <div className={ styles['loading-wrap_mask'] }></div>
             : null
         }
-      </div>
+      </>
     )
   }
 }

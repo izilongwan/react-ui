@@ -7,10 +7,10 @@ import {
   ILoadingCreateInstance,
 } from './types'
 
-const getInstance: ILoadingCreateInstance = (): ILoadingInstance => {
-  const div = document.createElement('div')
+const getInstance: ILoadingCreateInstance = (options): ILoadingInstance => {
+  const div = document.createElement('div');
 
-  document.body.appendChild(div)
+  (options.body ?? document.body).appendChild(div)
 
   const instance = ReactDOM.render(<LoadingComponent />, div) as unknown as ILoadingInstance
 
@@ -18,10 +18,10 @@ const getInstance: ILoadingCreateInstance = (): ILoadingInstance => {
 }
 
 export const Loading: ILoadingInstance = {
-  show(config) {
-    const loading = getInstance()
+  show(options) {
+    const loading = getInstance(options!)
 
-    return loading.show(config)
+    return loading.show(options)
   },
 }
 

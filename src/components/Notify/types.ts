@@ -21,7 +21,7 @@ export interface NotifyInstance {
 }
 
 export interface CreateNotification {
-  (position: NotifyInstancePropPosition): NotifyInstance;
+  (style: NotifyInstancePropPosition): NotifyInstance;
   instance?: NotifyInstance;
 }
 
@@ -31,13 +31,13 @@ export interface NotifyInstancePropPosition {
 
 export interface NotifyInstanceProps {
   type: NotifyInstancePropTypes;
-  message: string;
+  content: string;
   title?: string;
   duration?: number;
   key?: string;
   isShow?: boolean;
   onClose?: Function;
-  position?: NotifyInstancePropPosition;
+  style?: NotifyInstancePropPosition;
 }
 
 export interface State {
@@ -45,7 +45,7 @@ export interface State {
 }
 
 export interface Props {
-  position: NotifyInstancePropPosition | undefined
+  style: NotifyInstancePropPosition | undefined
 }
 
 export interface PositionStateInstance {

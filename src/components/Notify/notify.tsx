@@ -31,7 +31,7 @@ class NotifyBox extends Component<Props, State> {
       isShow: true,
       duration: 2000,
       type: 'primary',
-      message: '',
+      content: '',
       title: 'Notice',
     }
   }
@@ -91,27 +91,27 @@ class NotifyBox extends Component<Props, State> {
   }
 
   render() {
-    const { position } = this.props
+    const { style } = this.props
     const { notices } = this.state
 
     return (
-      <div className={ styles["notify-wrap"] } ref={ node => this.wrapRef = node }>
-        <div className={ `${ styles['notify-wrap_list'] }` } style={ position }>
+      <div className={ styles['notify-wrap'] } ref={ node => this.wrapRef = node }>
+        <div className={ `${ styles['notify-wrap_list'] }` } style={ style }>
           {
             notices.map(notice => (
-              <div ref={ node => this.ref = node } className={ `${ styles["notify-wrap_list_item"] } ${ styles[`notify-wrap_list_item-type-${ notice.type }`] } ${ notice.isShow ? styles['fade-in'] : '' } ` } key={ notice.key }>
-                <div className={ styles["notify-wrap_list_item_content"] }>
-                  <span className={ `${ styles["notify-wrap_list_item_content_icon"] } ${ styles[`icon-${ notice.type }`] } ` }></span>
+              <div ref={ node => this.ref = node } className={ `${ styles['notify-wrap_list_item'] } ${ styles[`notify-wrap_list_item-type-${ notice.type }`] } ${ notice.isShow ? styles['fade-in'] : '' } ` } key={ notice.key }>
+                <div className={ styles['notify-wrap_list_item_content'] }>
+                  <span className={ `${ styles['notify-wrap_list_item_content_icon'] } ${ styles[`icon-${ notice.type }`] } ` }></span>
 
-                  <div className={ styles["notify-wrap_list_item_content_main"] }>
-                    <div className={ styles["notify-wrap_list_item_content_title"] }>
-                      <h4 className={ styles["notify-wrap_list_item_content_title_content"] }>{ notice.title }</h4>
-                      <span className={ styles["notify-wrap_list_item_content_title_close"] } onClick={ () => this.remove(notice.key!) }>
+                  <div className={ styles['notify-wrap_list_item_content_main'] }>
+                    <div className={ styles['notify-wrap_list_item_content_title'] }>
+                      <h4 className={ styles['notify-wrap_list_item_content_title_content'] }>{ notice.title }</h4>
+                      <span className={ styles['notify-wrap_list_item_content_title_close'] } onClick={ () => this.remove(notice.key!) }>
                         +
                       </span>
                     </div>
 
-                    <div dangerouslySetInnerHTML={ { __html: notice.message } } className={ styles["notify-wrap_list_item_content_text"] }>
+                    <div dangerouslySetInnerHTML={ { __html: notice.content } } className={ styles["notify-wrap_list_item_content_text"] }>
                     </div>
                   </div>
                 </div>

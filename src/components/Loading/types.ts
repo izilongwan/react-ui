@@ -6,19 +6,20 @@ export interface ILoadingInstance {
 }
 
 export interface ILoadingCreateInstance {
-  (): ILoadingInstance;
+  (options: ILoadingInstanceProps): ILoadingInstance;
   instance?: ILoadingInstance;
 }
 
 export interface ILoadingInstanceProps {
-  message?: string;
+  body?: HTMLElement
+  tip?: string;
   duration?: number;
   isMaskShow?: boolean;
   key?: string;
   isShow?: boolean;
   imgSrc?: string
   onClose?: Function;
-  position?: Record<string, any>;
+  style?: Record<string, any>;
 }
 
 export interface ILoadingState {
