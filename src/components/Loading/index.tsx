@@ -10,7 +10,15 @@ import {
 const getInstance: ILoadingCreateInstance = (options): ILoadingInstance => {
   const div = document.createElement('div');
 
-  (options.body ?? document.body).appendChild(div)
+  let body = document.body
+
+  if (options.body) {
+    body = typeof(options.body) === 'string'
+      ? document.querySelector(options.body)!
+      : options.body as HTMLElement
+  }
+
+  body.appendChild(div)
 
   const instance = ReactDOM.render(<LoadingComponent />, div) as unknown as ILoadingInstance
 

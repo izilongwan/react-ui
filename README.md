@@ -1,6 +1,6 @@
 ### @izilong/react-ui
 
-- Install｜安装
+- 安装｜install
 ```shell
 npm i @izilong/react-ui
 ```
@@ -8,17 +8,28 @@ npm i @izilong/react-ui
 yarn add @izilong/react-ui
 ```
 
-
-- js中引入
+- 使用｜use
 ```js
-import ReactUI, { Notify, VurtualList, Loading } from '@izilong/react-ui'
+import XUI, {
+    Notify,
+    VurtualList,
+    Loading } from '@izilong/react-ui'
 ```
+- 引入CSS
 ```js
 import '@izilong/react-ui/dist/css/index.css'
 ```
 
-
 ## API Reference
+
+
+- 组件纵览
+```js
+XUI
+  |-VirtualList
+  |-Loading
+  |-Notify
+```
 
 - VirtualList
   ```js
@@ -49,6 +60,7 @@ import '@izilong/react-ui/dist/css/index.css'
   | Parameter | Type     | Description                       |
   | :-------- | :------- | :-------------------------------- |
   | `imgSrc` | `string` | **Optional**. import imgSrc from xxx
+  | `body` | `string \| Element` | **Optional**. string \| Element (document.querySelector)
   | `tip` | `string` | **Optional**. tip
   | `duration` | `number` | **Optional**. duration
   | `isMaskShow` | `boolean` | **Optional**. is show mask

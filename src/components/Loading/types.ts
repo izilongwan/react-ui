@@ -11,7 +11,7 @@ export interface ILoadingCreateInstance {
 }
 
 export interface ILoadingInstanceProps {
-  body?: HTMLElement
+  body?: Element | string
   tip?: string;
   duration?: number;
   isMaskShow?: boolean;
