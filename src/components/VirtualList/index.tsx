@@ -1,16 +1,12 @@
-import React, {
-  LegacyRef,
-} from 'react'
-import { useVirtualList } from './hook'
-
-import styles from './index.module.scss'
-
-import {
-  VirtualListProps,
-} from './types'
+import React, { LegacyRef } from 'react';
+import { useVirtualList } from './hook';
+import styles from './index.module.scss';
+import { VirtualListProps } from './types';
+import imgSrc from '@/assets/images/loading-2.gif'
 
 const VirtualList = (props: VirtualListProps) => {
   const {
+    isLoaded,
     listRef,
     wrapRef,
     listIndex,
@@ -25,9 +21,12 @@ const VirtualList = (props: VirtualListProps) => {
 
   return (
     <div className={ styles['virtual-list-wrap'] } ref={ wrapRef as LegacyRef<HTMLDivElement> } onScroll={ hanleScrollAction }>
-      <div className={ styles['virtual-scroll-bar'] } style={ { height: scrollHeight + 'px' } }></div>
-      <div className={ styles['virtual-content'] } style={ { transform: `translateY(${ offsetY }px)` } } onClick={ handleClick }>
-        <ul className={ styles['virtual-list'] } ref={ listRef as LegacyRef<HTMLUListElement> }>
+
+      <div className={ styles['virtual-list-wrap_scroll-bar'] } style={ { height: scrollHeight + 'px' } }></div>
+
+      <div className={ styles['virtual-list-wrap_content'] } style={ { transform: `translateY(${ offsetY }px)` } } onClick={ handleClick }>
+
+        <ul className={ styles['virtual-list-wrap_list'] } ref={ listRef as LegacyRef<HTMLUListElement> }>
           {
             React.Children.map(
               children.slice(listIndex.start, listIndex.end),
@@ -37,9 +36,13 @@ const VirtualList = (props: VirtualListProps) => {
             )
           }
         </ul>
-        <p className={ [styles['virtual-load-tip'], isLoading ? styles['show'] : ''].join(' ') }>{ loadTip }</p>
+
+        <p className={ `${ styles['virtual-list-wrap_content_load'] } ${ isLoading ? styles['show'] : '' }` }>
+          <img className={ `${ styles['virtual-list-wrap_content_load_img'] } ${ isLoaded ? styles.hide : '' }` } src={ imgSrc } alt="loading" />
+
+          <span className={ styles['virtual-list-wrap_content_load_tip'] }>{ loadTip }</span>
+        </p>
       </div>
-      {/* <span style={ { position: 'fixed', top: '50%', right: '20px', transform: 'translateY(-50%)' } }>{ positionList.length }</span> */ }
     </div>
   );
 };

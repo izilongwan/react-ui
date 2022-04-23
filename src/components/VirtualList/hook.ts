@@ -26,11 +26,11 @@ export function useVirtualList(props: VirtualListProps) {
   const [offsetY, setOffsetY] = useState(0)
   const [scrollHeight, setScrollHeight] = useState(children.length * colHeight)
   const [positionList, setPositionList] = useState(() => initOItemPosition(children.length))
-  const [loadTip, setLoadTip] = useState('正在玩命加载...')
+  const [loadTip, setLoadTip] = useState('')
   const [isLoading, setIsLoading] = useState(false)
 
-  const listRef = useRef<HTMLElement>(),
-        wrapRef = useRef<HTMLElement>(),
+  const listRef = useRef<null | HTMLDivElement>(),
+        wrapRef = useRef<null | HTMLDivElement>(),
         loadingRef = useRef(false)
 
   useEffect(() => {
@@ -42,7 +42,7 @@ export function useVirtualList(props: VirtualListProps) {
   }, [children.length, positionList.length])
 
   useEffect(() => {
-    setLoadTip(isLoaded ? '我是有底线的人' : '正在玩命加载...')
+    setLoadTip(isLoaded ? '我是有底线的人' : '')
   }, [isLoaded])
 
   function initOItemPosition (length: number, baseIndex = 0): VirtualListPositionList[] {
@@ -183,6 +183,7 @@ export function useVirtualList(props: VirtualListProps) {
   }, delay)
 
   return {
+    isLoaded,
     listRef,
     wrapRef,
     loadingRef,

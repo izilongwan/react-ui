@@ -10,10 +10,7 @@ yarn add @izilong/react-ui
 
 - 使用｜use
 ```js
-import XUI, {
-    Notify,
-    VurtualList,
-    Loading } from '@izilong/react-ui'
+import XUI from '@izilong/react-ui'
 ```
 - 引入CSS
 ```js
