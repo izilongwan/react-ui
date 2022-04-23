@@ -1,13 +1,18 @@
-import React, { useRef, useCallback } from 'react'
+import React, { useCallback, useRef } from 'react';
 
 interface FnType {
   (): any;
   remove?: () => void;
 }
 
-export function useThrottle (fn: Function, delay = 500) {
+type TRet = [
+  (...args: any[]) => any,
+  Function
+]
+
+export function useThrottle (fn: Function, delay = 500): TRet {
   const tsRef    = useRef<number>(Date.now()),
-        timerRef = useRef<number>(0)
+        timerRef = useRef<NodeJS.Timeout>()
 
   const _ = <FnType>useCallback(function (this: object, ...args: object[]) {
     const curTs = Date.now()
@@ -22,9 +27,9 @@ export function useThrottle (fn: Function, delay = 500) {
     const e = args[0] as React.SyntheticEvent
 
     // 针对event事件
-    e?.persist && e?.persist();
+    e?.persist?.();
 
-    timerRef.current = window.setTimeout(() => {
+    timerRef.current = setTimeout(() => {
       fn.apply(this, args)
     }, delay);
 
@@ -32,7 +37,7 @@ export function useThrottle (fn: Function, delay = 500) {
   }, [])
 
   _.remove = () => {
-    clearTimeout((<{ value?: number }> timerRef.current)!.value)
+    clearTimeout((<{ value?: number }> timerRef.current)?.value)
   }
 
   return [_, _.remove]

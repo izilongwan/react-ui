@@ -31,7 +31,7 @@ export function useVirtualList(props: VirtualListProps) {
 
   const listRef = useRef<null | HTMLDivElement>(),
         wrapRef = useRef<null | HTMLDivElement>(),
-        loadingRef = useRef(false)
+        isLoadingRef = useRef(false)
 
   useEffect(() => {
     setOItemPosition(positionList)
@@ -69,7 +69,7 @@ export function useVirtualList(props: VirtualListProps) {
     positionList.push(...list)
     setOItemPosition(positionList)
     handleListIndexChange({ startIndex: listIndex.startIndex, scrollTop: 0 })
-    loadingRef.current = false
+    isLoadingRef.current = false
     setIsLoading(false)
   }
 
@@ -97,11 +97,11 @@ export function useVirtualList(props: VirtualListProps) {
     setScrollHeight(positionList[positionList.length - 1].bottom)
 
     if (isScrollAttachedBottom(scrollTop)) {
-      if (loadingRef.current) {
+      if (isLoadingRef.current) {
         return
       }
 
-      loadingRef.current = true
+      isLoadingRef.current = true
       setIsLoading(true)
       handlePullupLoadAction(e, startIndex ? startIndex - 1 : 0)
       return
@@ -171,14 +171,11 @@ export function useVirtualList(props: VirtualListProps) {
 
     const startIndex = binarySearch(positionList, scrollTop)
 
-    if (startIndex > -1) {
-      handleListIndexChange({ startIndex, e, scrollTop })
-    }
+    startIndex > -1 && handleListIndexChange({ startIndex, e, scrollTop })
   }, delay)
 
-  const [handlePullupLoadAction]: ((e?: SyntheticEvent, start?: number) => void)[] = useThrottle(async (e: SyntheticEvent) => {
-    console.log('=== 上拉加载 ===')
-
+  const [handlePullupLoadAction] = useThrottle(async (e: SyntheticEvent) => {
+    // console.log('=== 上拉加载 ===')
     await handlePullupLoad(e)
   }, delay)
 
@@ -186,7 +183,7 @@ export function useVirtualList(props: VirtualListProps) {
     isLoaded,
     listRef,
     wrapRef,
-    loadingRef,
+    isLoadingRef,
     listIndex,
     offsetY,
     scrollHeight,
