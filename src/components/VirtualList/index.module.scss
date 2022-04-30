@@ -34,7 +34,9 @@
 			opacity: 0;
 
 			&_img {
-				width: 35px;
+				&.img {
+					width: 35px;
+				}
 			}
 
 			&_tip {

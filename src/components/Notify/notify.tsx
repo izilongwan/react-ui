@@ -1,3 +1,4 @@
+import { xuiScoped } from '@/config';
 import React, { Component, LegacyRef } from 'react'
 import ReactDOM from 'react-dom'
 import styles from './notify.module.scss'
@@ -95,7 +96,7 @@ class NotifyBox extends Component<Props, State> {
     const { notices } = this.state
 
     return (
-      <div className={ styles['notify-wrap'] } ref={ node => this.wrapRef = node }>
+      <div className={ `${ xuiScoped } ${ styles['notify-wrap'] }` } ref={ node => this.wrapRef = node }>
         <div className={ `${ styles['notify-wrap_list'] }` } style={ style }>
           {
             notices.map(notice => (
@@ -105,8 +106,9 @@ class NotifyBox extends Component<Props, State> {
 
                   <div className={ styles['notify-wrap_list_item_content_main'] }>
                     <div className={ styles['notify-wrap_list_item_content_title'] }>
-                      <h4 className={ styles['notify-wrap_list_item_content_title_content'] }>{ notice.title }</h4>
-                      <span className={ styles['notify-wrap_list_item_content_title_close'] } onClick={ () => this.remove(notice.key!) }>
+                      <h4 className={ `${styles['notify-wrap_list_item_content_title_content']} ${styles.title} bold` }>{ notice.title }</h4>
+
+                      <span className={ `${styles['notify-wrap_list_item_content_title_close']} bold` } onClick={ () => this.remove(notice.key!) }>
                         +
                       </span>
                     </div>

@@ -8,6 +8,7 @@ import {
   ILoadingState,
 } from './types'
 import imgSrc from '@/assets/images/loading.gif'
+import { xuiScoped } from '@/config'
 
 class Loading extends Component<ILoadingProps, ILoadingState> {
   transitionTime: number;
@@ -83,7 +84,7 @@ class Loading extends Component<ILoadingProps, ILoadingState> {
     const { config } = this.state
 
     return (
-      <div className={ styles['loading-wrap'] } ref={ node => this.ref = node }>
+      <div className={ `${ xuiScoped } ${ styles['loading-wrap'] }` } ref={ node => this.ref = node }>
         {
           config
             ? this.renderContent(config)
