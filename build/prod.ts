@@ -20,23 +20,27 @@ module.exports = merge({}, base, {
     clean: true,
   },
 
-  // module: {
-  //   rules: [
-  //     {
-  //       test: /\.s?css$/,
-  //       use: [
-  //         MiniCssExtractPlugin.loader,
-  //         {
-  //           loader: 'css-loader',
-  //           options: {
-  //             modules: true,
-  //           }
-  //         },
-  //         'sass-loader',
-  //       ],
-  //     }
-  //   ]
-  // },
+  module: {
+    rules: [
+      {
+        test: /\.s?css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              // 开启 CSS Modules
+              modules: {
+                // 自定义生成的类名
+                localIdentName: '[local]___[hash:base64:8]'
+              },
+            }
+          },
+          'sass-loader',
+        ],
+      }
+    ]
+  },
 
   externals: { // 定义外部依赖，避免把react和react-dom打包进去
     react: {

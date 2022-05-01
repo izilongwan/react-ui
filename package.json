@@ -1,13 +1,14 @@
 {
   "name": "@izilong/react-ui",
-  "version": "1.1.19",
+  "version": "1.1.20",
   "description": "UI for react",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "npx webpack serve --config build/dev.ts",
-    "build": "mode=prod npx webpack --config build/prod.ts",
+    "build": "npx webpack --config build/prod.ts",
+    "prepublish": "npm build",
     "publish": "npm publish"
   },
   "keywords": [

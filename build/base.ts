@@ -1,35 +1,8 @@
 const path = require('path')
-const { mode } = process.env
 
 module.exports = {
-  output: {
-    filename: 'js/[name].js',
-    clean: true,
-  },
-
   module: {
     rules: [
-      {
-        test: /\.s?css$/,
-        use: [
-          mode === 'prod'
-            ? require('mini-css-extract-plugin').loader
-            : 'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              // 开启 CSS Modules
-              modules: {
-                // 自定义生成的类名
-                localIdentName: '[local]___[hash:base64:8]'
-              },
-            }
-          },
-          // 'css-loader',
-          'sass-loader',
-        ],
-        exclude: /node_modules/,
-      },
       {
         test: /\.jsx?$/,
         use: [
