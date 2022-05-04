@@ -13,6 +13,7 @@
 		top: 5%;
 
 		&_item {
+			box-shadow: 0 0 3px 1px #f1f1f1;
 			opacity: 0;
 			transition: all 0.3s;
 			transform: translateX(500%);
@@ -55,8 +56,8 @@
 			&_content {
 				display: flex;
 				width: 200px;
-				color: #fff;
 				padding: 10px;
+				color: #fff;
 
 				&_main {
 					width: 83%;

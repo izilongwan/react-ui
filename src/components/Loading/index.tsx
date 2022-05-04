@@ -7,7 +7,7 @@ import {
   ILoadingCreateInstance,
 } from './types'
 
-const getInstance: ILoadingCreateInstance = (options): ILoadingInstance => {
+const getInstance: ILoadingCreateInstance = (options) => {
   const div = document.createElement('div');
 
   let body = document.body

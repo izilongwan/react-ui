@@ -16,7 +16,7 @@ const typesArr: NotifyInstancePropTypes[] = ['info', 'warning', 'success', 'dang
 
 const positionStateInstance: PositionStateInstance = {}
 
-const getNotification: CreateNotification = (style: NotifyInstancePropPosition): NotifyInstance => {
+const getNotification: CreateNotification = (style: NotifyInstancePropPosition) => {
   let positionKey = ''
 
   try {
@@ -48,14 +48,14 @@ const notice = (config: NotifyInstanceProps) => {
   return notification.add(config)
 }
 
-export const notifyInstanceFunction: NotifyFunction = {
-  warning: (): any => { },
-  primary: (): any => { },
-  success: (): any => { },
-  danger: (): any => { },
-  info: (): any => { },
-  show: (): any => { },
-}
+export const notifyInstanceFunction = {
+  // warning: (): any => { },
+  // primary: (): any => { },
+  // success: (): any => { },
+  // danger: (): any => { },
+  // info: (): any => { },
+  // show: (): any => { },
+} as NotifyFunction
 
 typesArr.forEach(type => {
   notifyInstanceFunction[type] = (config) => {
