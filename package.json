@@ -15,6 +15,7 @@
     "react",
     "ui"
   ],
+  "browserslist": "> 0.25%, not dead",
   "author": "@izilong",
   "license": "ISC",
   "files": [
