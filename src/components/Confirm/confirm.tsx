@@ -51,6 +51,7 @@ export default class Confirm extends Component<{}, ConfirmState> {
       setTimeout(() => {
         const node = this.ref?.parentNode as Element
         ReactDOM.unmountComponentAtNode(node)
+        node.remove()
       }, 300)
     })
   }
