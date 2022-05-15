@@ -1,11 +1,17 @@
+import {
+  Confirm,
+  Loading,
+  Notify,
+  VirtualList
+} from './components'
 import './styles/index.scss'
-import { Loading, VirtualList, Notify } from './components'
 
-export * from './hooks'
 export * from './components'
+export * from './hooks'
 
 export default {
+  Confirm,
   Loading,
-  VirtualList,
   Notify,
+  VirtualList,
 }
