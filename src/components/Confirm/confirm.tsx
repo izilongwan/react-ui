@@ -19,6 +19,10 @@ export default class Confirm extends Component<{}, ConfirmState> {
     const { field } = (e.target as HTMLElement).dataset
     const { options, resolve, reject} = this.state
 
+    if (!field) {
+      return
+    }
+
     const cbs: ((v: typeof rs) => void)[] = [
       reject,
       resolve
@@ -105,7 +109,7 @@ export default class Confirm extends Component<{}, ConfirmState> {
 
     return (
       <div ref={ node => this.ref = node } className={ `${ xuiScoped } ${ styles['confirm-wrap'] } ${ options.isShow ? styles['fade-in'] : '' }` } >
-        <div className={ styles['confirm-wrap_bd'] } onClick={ this.handleClick }>
+        <div style={ options.style } className={ styles['confirm-wrap_bd'] } onClick={ this.handleClick }>
           <div className={ `${ styles['confirm-wrap_bd_title'] } ${ styles['confirm-wrap_bd_cell'] }` }>
             <span className={ `${ styles['confirm-wrap_bd_title_icon'] } xui-color xui-icon icon-${ options.type } ${ styles.icon } ${ options.type }` }></span>
             <h3 className={ styles['confirm-wrap_bd_title_text'] }>

@@ -22,8 +22,8 @@ export interface ConfirmPropOption {
   isShow?: boolean
   isMaskShow?: boolean
   type?: TypeColor
-  body?: string | HTMLElement
   autoClose?: boolean
+  style?: Record<string, string>
 }
 
 export type ConfirmOption = Omit<ConfirmPropOption, 'id' | 'isShow'>
