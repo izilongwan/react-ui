@@ -1,0 +1,30 @@
+.btn {
+  cursor: pointer;
+  border-radius: 3px;
+  color: #fff;
+  opacity: .88;
+  vertical-align: middle;
+  transition: all .3s;
+
+  &+& {
+    margin-left: 8px;
+  }
+
+  &_size {
+    &-mini {
+      padding: 3px 5px;
+    }
+
+    &-normal {
+      padding: 5px 10px;
+    }
+
+    &-large {
+      padding: 8px 15px;
+    }
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
