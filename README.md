@@ -23,9 +23,10 @@ import '@izilong/react-ui/dist/css/index.css'
 - 组件纵览
 ```js
 XUI
-  |-VirtualList
+  |-Confirm
   |-Loading
   |-Notify
+  |-VirtualList
 ```
 
 - VirtualList
@@ -62,3 +63,16 @@ XUI
   | `duration` | `number` | **Optional**. duration
   | `isMaskShow` | `boolean` | **Optional**. is show mask
   | `style` | `object` | **Optional**. { top: 10%, left: 50% }
+
+
+- Confirm
+    | Parameter | Type     | Description                       |
+    | :-------- | :------- | :-------------------------------- |
+    | `content` | `string` | **Required**. content
+    | `title` | `string` | **Optional**. title
+    | `type` | `string` | **Optional**. type
+    | `leftText` | `number` | **Optional**. leftText
+    | `rightText` | `number` | **Optional**. rightText
+    | `autoClose` | `boolean` | **Optional**. after click opteration auto close
+    | `isMaskShow` | `boolean` | **Optional**. is show mask
+    | `style` | `object` | **Optional**. { top: 10%, left: 50% }
