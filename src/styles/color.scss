@@ -53,5 +53,58 @@ $danger-bd-color: #d43f3a;
     &.success {
       background-color: $success-bd-color
     }
+
+    &.default {
+      background-color: #fff;
+    }
+  }
+
+  .xui-bd-color {
+    &.primary {
+      border-color: $primary-color
+    }
+
+    &.success {
+      border-color: $success-color
+    }
+
+    &.warning {
+      border-color: $warning-color
+    }
+
+    &.danger {
+      border-color: $danger-color
+    }
+
+    &.info {
+      border-color: $info-color
+    }
+  }
+
+  .xui-bd-color.btn {
+    &.primary {
+      border-color: $primary-color
+    }
+
+    &.success {
+      border-color: $success-color
+    }
+
+    &.warning {
+      border-color: $warning-color
+    }
+
+    &.danger {
+      border-color: $danger-color
+    }
+
+    &.info {
+      border-color: $info-color
+    }
+
+    &.default {
+      border-color: #333;
+      color: #333;
+    }
   }
 }

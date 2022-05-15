@@ -3,10 +3,11 @@
     box-sizing: border-box;
   }
 
-  @import './global.scss';
+  @import './common.scss';
   @import './reset.scss';
   @import './mixins.scss';
 }
 
 @import './icon.scss';
 @import './color.scss';
+@import './global.scss';

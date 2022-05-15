@@ -1,5 +1,8 @@
 :global {
-  .bold {
-    font-weight: bold;
+  .xui-scoped {
+    &.btn {
+      outline: none;
+      border: 1px solid #fff;
+    }
   }
 }
