@@ -1,5 +1,7 @@
 import {
+  Button,
   Confirm,
+  Icon,
   Loading,
   Notify,
   VirtualList
@@ -10,7 +12,9 @@ export * from './components'
 export * from './hooks'
 
 export default {
+  Button,
   Confirm,
+  Icon,
   Loading,
   Notify,
   VirtualList,
