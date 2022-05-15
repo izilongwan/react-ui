@@ -100,9 +100,9 @@ class NotifyBox extends Component<Props, State> {
         <div className={ `${ styles['notify-wrap_list'] }` } style={ style }>
           {
             notices.map(notice => (
-              <div ref={ node => this.ref = node } className={ `${ styles['notify-wrap_list_item'] } ${ styles[`notify-wrap_list_item-type-${ notice.type }`] } ${ notice.isShow ? styles['fade-in'] : '' } ` } key={ notice.key }>
+              <div ref={ node => this.ref = node } className={ `${ styles['notify-wrap_list_item'] } xui-bg-color ${ notice.type } ${ notice.type } ${ notice.isShow ? styles['fade-in'] : '' } ` } key={ notice.key }>
                 <div className={ styles['notify-wrap_list_item_content'] }>
-                  <span className={ `${ styles['notify-wrap_list_item_content_icon'] } ${ styles[`icon-${ notice.type }`] } ` }></span>
+                  <span className={ `${ styles['notify-wrap_list_item_content_icon'] } xui-icon icon-${ notice.type } ${ styles.icon } ` }></span>
 
                   <div className={ styles['notify-wrap_list_item_content_main'] }>
                     <div className={ styles['notify-wrap_list_item_content_title'] }>
