@@ -23,7 +23,9 @@ import '@izilong/react-ui/dist/css/index.css'
 - 组件纵览
 ```js
 XUI
+  |-Button
   |-Confirm
+  |-Icon
   |-Loading
   |-Notify
   |-VirtualList
@@ -76,3 +78,18 @@ XUI
     | `autoClose` | `boolean` | **Optional**. after click opteration auto close
     | `isMaskShow` | `boolean` | **Optional**. is show mask
     | `style` | `object` | **Optional**. { top: 10%, left: 50% }
+
+
+- Button
+    | Parameter | Type     | Description                       |
+    | :-------- | :------- | :-------------------------------- |
+    | `size` | `string` | **Optional**. mini \| normal \| large
+    | `type` | `string` | **Optional**. primary \| success \| danger \| warning \| info \| default
+
+
+- Icon
+    | Parameter | Type     | Description                       |
+    | :-------- | :------- | :-------------------------------- |
+    | `size` | `number` | **Optional**.
+    | `color` | `string` | **Optional**. #fcc
+    | `icon` | `string` | **Optional**. icon-primary \| icon-success \| icon-danger \| icon-warning \| icon-info
