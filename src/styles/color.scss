@@ -9,3 +9,49 @@ $success-bd-color: #4cae4c;
 $info-bd-color: #46b8da;
 $warning-bd-color: #eea236;
 $danger-bd-color: #d43f3a;
+
+:global {
+  .xui-color {
+    &.primary {
+      color: $primary-color
+    }
+
+    &.success {
+      color: $success-color
+    }
+
+    &.warning {
+      color: $warning-color
+    }
+
+    &.danger {
+      color: $danger-color
+    }
+
+    &.info {
+      color: $info-color
+    }
+  }
+
+  .xui-bg-color {
+    &.primary {
+      background-color: $primary-bd-color
+    }
+
+    &.info {
+      background-color: $info-bd-color
+    }
+
+    &.warning {
+      background-color: $warning-bd-color
+    }
+
+    &.danger {
+      background-color: $danger-bd-color
+    }
+
+    &.success {
+      background-color: $success-bd-color
+    }
+  }
+}
