@@ -3,6 +3,7 @@ import { xuiScoped } from '@/config'
 import { ConfirmOption, ConfirmPropOption, ConfirmState, ShowRs } from './types'
 
 import styles from './index.module.scss'
+import ReactDOM from 'react-dom'
 
 export default class Confirm extends Component<{}, ConfirmState> {
 
@@ -35,12 +36,7 @@ export default class Confirm extends Component<{}, ConfirmState> {
       onClose: () => this.hide()
     }
 
-    options.autoClose && this.setState({
-      options: {
-        ...options,
-        isShow: false,
-      }
-    })
+    options.autoClose && this.hide()
 
     cbs?.[n]?.(rs)
   }
@@ -51,7 +47,12 @@ export default class Confirm extends Component<{}, ConfirmState> {
     this.setState({ options: {
       ...options,
       isShow: false,
-     }})
+    }}, () => {
+      setTimeout(() => {
+        const node = this.ref?.parentNode as Element
+        ReactDOM.unmountComponentAtNode(node)
+      }, 300)
+    })
   }
 
   getDefaultOptions(): ConfirmPropOption {
