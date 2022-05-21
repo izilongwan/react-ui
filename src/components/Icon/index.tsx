@@ -3,18 +3,18 @@ import styles from './index.module.scss'
 import { Props } from './types'
 
 const Icon = (props: Props) => {
-  const { icon = 'icon-info', size, color } = props
+  const { type = 'icon-info', size, color } = props
   const style = {}
 
-  size && Object.assign(style,  { fontSize: size + 'px' })
-  color && Object.assign(style,  { color })
+  size && Object.assign(style, { fontSize: size + 'px' })
+  color && Object.assign(style, { color })
 
   return (
     <span
       style={ style }
-      className={`
+      className={ `
         xui-icon
-        ${ icon }
+        ${ type }
         ${ styles.icon }
       `}></span>
   )

@@ -8,7 +8,7 @@ export type TypeColor =
   | 'info'
 
 export interface Props {
-  icon?: TypeIcon
+  type?: TypeIcon
   size?: number
   color?: string
 }
