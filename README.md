@@ -92,4 +92,4 @@ XUI
     | :-------- | :------- | :-------------------------------- |
     | `size` | `number` | **Optional**.
     | `color` | `string` | **Optional**. #fcc
-    | `icon` | `string` | **Optional**. icon-primary \| icon-success \| icon-danger \| icon-warning \| icon-info
+    | `type` | `string` | **Optional**. icon-primary \| icon-success \| icon-danger \| icon-warning \| icon-info
