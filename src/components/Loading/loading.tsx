@@ -10,7 +10,7 @@ import {
 import imgSrc from '@/assets/images/loading.gif'
 import { xuiScoped } from '@/config'
 
-class Loading extends Component<ILoadingProps, ILoadingState> {
+export class Loading extends Component<ILoadingProps, ILoadingState> {
   transitionTime: number;
   ref: HTMLDivElement | null
 

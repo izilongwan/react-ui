@@ -5,20 +5,20 @@ import { ConfirmOption, ConfirmPropOption, ConfirmState, ShowRs } from './types'
 import styles from './index.module.scss'
 import ReactDOM from 'react-dom'
 
-export default class Confirm extends Component<{}, ConfirmState> {
+export class Confirm extends Component<{}, ConfirmState> {
 
   state = {
     options: this.getDefaultOptions(),
-    promise: new Promise((resolve, reject) => {}),
-    resolve: () => {},
-    reject: () => {},
+    promise: new Promise((resolve, reject) => { }),
+    resolve: () => { },
+    reject: () => { },
   }
 
   ref!: null | HTMLElement
 
   handleClick = (e: SyntheticEvent) => {
     const { field } = (e.target as HTMLElement).dataset
-    const { options, resolve, reject} = this.state
+    const { options, resolve, reject } = this.state
 
     if (!field) {
       return
@@ -44,10 +44,12 @@ export default class Confirm extends Component<{}, ConfirmState> {
   hide() {
     const { options } = this.state
 
-    this.setState({ options: {
-      ...options,
-      isShow: false,
-    }}, () => {
+    this.setState({
+      options: {
+        ...options,
+        isShow: false,
+      }
+    }, () => {
       setTimeout(() => {
         const node = this.ref?.parentNode as Element
         ReactDOM.unmountComponentAtNode(node)
@@ -71,8 +73,8 @@ export default class Confirm extends Component<{}, ConfirmState> {
   }
 
   show(options: ConfirmOption) {
-    let resolve = (value: unknown) => {}
-    let reject = () => {}
+    let resolve = (value: unknown) => { }
+    let reject = () => { }
     const promise = new Promise((res, rej) => {
       resolve = res
       reject = rej
@@ -129,18 +131,20 @@ export default class Confirm extends Component<{}, ConfirmState> {
 
             {
               options.rightText
-                &&
-                <button className={ `${ styles['confirm-wrap_bd_btn-wrap_btn'] } ${ styles.btn } ${ styles['confirm-wrap_bd_btn-wrap_right'] }` } data-field="0"
-                >{ options.rightText }</button>
+              &&
+              <button className={ `${ styles['confirm-wrap_bd_btn-wrap_btn'] } ${ styles.btn } ${ styles['confirm-wrap_bd_btn-wrap_right'] }` } data-field="0"
+              >{ options.rightText }</button>
             }
           </div>
         </div>
 
         { options.isMaskShow
-            &&
-            <div className={ styles['confirm-wrap_mask'] }></div>
+          &&
+          <div className={ styles['confirm-wrap_mask'] }></div>
         }
       </div>
     )
   }
 }
+
+export default Confirm

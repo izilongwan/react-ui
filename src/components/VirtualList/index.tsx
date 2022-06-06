@@ -5,7 +5,7 @@ import { VirtualListProps } from './types';
 import imgSrc from '@/assets/images/loading-2.gif'
 import { xuiScoped } from '@/config';
 
-const VirtualList = (props: VirtualListProps) => {
+export const VirtualList = (props: VirtualListProps) => {
   const {
     isLoaded,
     listRef,
@@ -39,7 +39,7 @@ const VirtualList = (props: VirtualListProps) => {
         </ul>
 
         <p className={ `${ styles['virtual-list-wrap_content_load'] } ${ isLoading ? styles['show'] : '' }` }>
-          <img className={ `${ styles['virtual-list-wrap_content_load_img'] } ${ styles.img} ${ isLoaded ? styles.hide : '' }` } src={ imgSrc } alt="loading" />
+          <img className={ `${ styles['virtual-list-wrap_content_load_img'] } ${ styles.img } ${ isLoaded ? styles.hide : '' }` } src={ imgSrc } alt="loading" />
 
           <span className={ styles['virtual-list-wrap_content_load_tip'] }>{ loadTip }</span>
         </p>

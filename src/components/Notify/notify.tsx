@@ -8,7 +8,7 @@ import {
   State,
 } from './types'
 
-class NotifyBox extends Component<Props, State> {
+export class Notify extends Component<Props, State> {
   transitionTime: number;
   wrapRef: null | HTMLDivElement;
   ref: null | HTMLDivElement;
@@ -106,9 +106,9 @@ class NotifyBox extends Component<Props, State> {
 
                   <div className={ styles['notify-wrap_list_item_content_main'] }>
                     <div className={ styles['notify-wrap_list_item_content_title'] }>
-                      <h4 className={ `${styles['notify-wrap_list_item_content_title_content']} ${styles.title} bold` }>{ notice.title }</h4>
+                      <h4 className={ `${ styles['notify-wrap_list_item_content_title_content'] } ${ styles.title } bold` }>{ notice.title }</h4>
 
-                      <span className={ `${styles['notify-wrap_list_item_content_title_close']} bold` } onClick={ () => this.remove(notice.key!) }>
+                      <span className={ `${ styles['notify-wrap_list_item_content_title_close'] } bold` } onClick={ () => this.remove(notice.key!) }>
                         +
                       </span>
                     </div>
@@ -126,4 +126,4 @@ class NotifyBox extends Component<Props, State> {
   }
 }
 
-export default NotifyBox
+export default Notify

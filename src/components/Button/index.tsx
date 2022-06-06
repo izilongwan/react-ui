@@ -2,7 +2,7 @@ import React from 'react'
 import { Props } from './types'
 import styles from './index.module.scss'
 
-const Index = (props: Props) => {
+export const Button = (props: Props) => {
   const { type = 'default', children, size = 'normal' } = props
 
   return (
@@ -14,10 +14,10 @@ const Index = (props: Props) => {
       ${ type }
       ${ styles.btn }
       ${ styles[`btn_size-${ size }`]
-    }` }>
+      }` }>
       { children }
     </button>
   )
 }
 
-export default Index
+export default Button

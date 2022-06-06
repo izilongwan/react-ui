@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './index.module.scss'
 import { Props } from './types'
 
-const Icon = (props: Props) => {
+export const Icon = (props: Props) => {
   const { type = 'icon-info', size, color } = props
   const style = {}
 
