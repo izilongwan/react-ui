@@ -20,7 +20,7 @@ import '@izilong/react-ui/dist/css/index.css'
 ## API Reference
 
 
-- 组件纵览
+- 组件总览
 ```js
 XUI
   |-Button
