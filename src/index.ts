@@ -1,7 +1,21 @@
-import * as components from './components'
+import {
+  Button,
+  Confirm,
+  Icon,
+  Loading,
+  Notify,
+  VirtualList
+} from './components'
 import './styles/index.scss'
 
 export * from './components'
 export * from './hooks'
 
-export default components
+export default {
+  Button,
+  Confirm,
+  Icon,
+  Loading,
+  Notify,
+  VirtualList,
+}
