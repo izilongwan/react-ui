@@ -31,40 +31,12 @@ XUI
   |-VirtualList
 ```
 
-- VirtualList
-  ```js
-    <VirtualList visibleHeight={ 400 } handlePullupLoad={ addListData }>
-      {
-        listData.map(item => {
-          return (
-            <li className="item" key={ item.id }>{ item.id } { item.text }</li>
-          )
-        })
-      }
-    </VirtualList>
-  ```
 
-
-- Notify
-  | Parameter | Type     | Description                |
-  | :-------- | :------- | :------------------------- |
-  | `type` | `string` | **Optional**. primary \| success \| danger \| warning \| info
-  | `content` | `string` | **Required**. content
-  | `title` | `string` | **Optional**. title
-  | `duration` | `number` | **Optional**. duration
-  | `style` | `object` | **Optional**. { top: 10%, left: 50% }
-
-
-
-- Loading
-  | Parameter | Type     | Description                       |
-  | :-------- | :------- | :-------------------------------- |
-  | `imgSrc` | `string` | **Optional**. import imgSrc from xxx
-  | `body` | `string \| Element` | **Optional**. string \| Element (document.querySelector)
-  | `tip` | `string` | **Optional**. tip
-  | `duration` | `number` | **Optional**. duration
-  | `isMaskShow` | `boolean` | **Optional**. is show mask
-  | `style` | `object` | **Optional**. { top: 10%, left: 50% }
+- Button
+    | Parameter | Type     | Description                       |
+    | :-------- | :------- | :-------------------------------- |
+    | `size` | `string` | **Optional**. mini \| normal \| large
+    | `type` | `string` | **Optional**. primary \| success \| danger \| warning \| info \| default
 
 
 - Confirm
@@ -80,16 +52,44 @@ XUI
     | `style` | `object` | **Optional**. { top: 10%, left: 50% }
 
 
-- Button
-    | Parameter | Type     | Description                       |
-    | :-------- | :------- | :-------------------------------- |
-    | `size` | `string` | **Optional**. mini \| normal \| large
-    | `type` | `string` | **Optional**. primary \| success \| danger \| warning \| info \| default
-
-
 - Icon
     | Parameter | Type     | Description                       |
     | :-------- | :------- | :-------------------------------- |
     | `size` | `number` | **Optional**.
     | `color` | `string` | **Optional**. #fcc
     | `type` | `string` | **Optional**. icon-primary \| icon-success \| icon-danger \| icon-warning \| icon-info
+
+
+- Loading
+  | Parameter | Type     | Description                       |
+  | :-------- | :------- | :-------------------------------- |
+  | `imgSrc` | `string` | **Optional**. import imgSrc from xxx
+  | `body` | `string \| Element` | **Optional**. string \| Element (document.querySelector)
+  | `tip` | `string` | **Optional**. tip
+  | `duration` | `number` | **Optional**. duration
+  | `isMaskShow` | `boolean` | **Optional**. is show mask
+  | `style` | `object` | **Optional**. { top: 10%, left: 50% }
+
+
+- Notify
+  | Parameter | Type     | Description                |
+  | :-------- | :------- | :------------------------- |
+  | `type` | `string` | **Optional**. primary \| success \| danger \| warning \| info
+  | `content` | `string` | **Required**. content
+  | `title` | `string` | **Optional**. title
+  | `duration` | `number` | **Optional**. duration
+  | `style` | `object` | **Optional**. { top: 10%, left: 50% }
+
+
+- VirtualList
+  ```js
+    <VirtualList visibleHeight={ 400 } handlePullupLoad={ addListData }>
+      {
+        listData.map(item => {
+          return (
+            <li className="item" key={ item.id }>{ item.id } { item.text }</li>
+          )
+        })
+      }
+    </VirtualList>
+  ```
